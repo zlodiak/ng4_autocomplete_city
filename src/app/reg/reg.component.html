@@ -8,13 +8,13 @@
     				(input)="getCities(city)"   				
     				[(ngModel)]="city">
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let optionObj of options" [value]="option" (click)="onSelectCity(optionObj.name)">
+      <mat-option *ngFor="let optionObj of options" [value]="optionObj" (click)="onSelectCity(optionObj.name)">
         {{ optionObj.name }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 
-  <button class="btn btn-common" mat-button (click)="submitForm(auto.value)">
+  <button class="btn btn-common" mat-button (click)="auto.value">
     Отправить
   </button>	  
 </form>

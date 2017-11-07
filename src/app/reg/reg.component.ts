@@ -32,8 +32,8 @@ export class RegComponent implements OnInit {
     this.city = option;
   };
 
-  submitForm(value) {
-    console.log('submit', value);
+  submitForm(city) {
+    console.log('submit', city);
   };
 
   private getCities(query): void {
@@ -58,6 +58,6 @@ export class RegComponent implements OnInit {
       err => {
         console.log('err')         
       });    
-  };  
+  };   
 
 }
