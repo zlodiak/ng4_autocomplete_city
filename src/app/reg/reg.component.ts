@@ -18,10 +18,10 @@ export class RegComponent implements OnInit {
   constructor(private placesService: PlacesService) { }
 
   /*private options = [
-    {name: 'qwerty'},
-    {name: 'qwerty2'},
-    {name: 'qwerty3'},
-    {name: 'qwerty4'}
+    {name: 'qwerty', id: 34234234},
+    {name: 'qwerty2', id: 121212},
+    {name: 'qwerty3', id: 676767},
+    {name: 'qwerty4', id: 453657}
   ];*/
 
   ngOnInit() {
@@ -33,7 +33,16 @@ export class RegComponent implements OnInit {
   };
 
   submitForm(city) {
-    console.log('submit', city);
+    let selectedCityObj = {};
+    for(let prop in this.options) {
+      console.log(this.options[prop]);
+      if(this.options[prop].name === city) {
+        selectedCityObj = this.options[prop];
+        break;
+      }
+    }
+
+    console.log('selectedCityObj', selectedCityObj);
   };
 
   private getCities(query): void {
@@ -46,7 +55,7 @@ export class RegComponent implements OnInit {
         let citiesRaw = JSON.parse(data._body);
         let cities: any[] = [];
 
-        for(var prop in citiesRaw) {
+        for(let prop in citiesRaw) {
           if (!citiesRaw.hasOwnProperty(prop)) continue;
           cities.push(citiesRaw[prop]);       
         }
